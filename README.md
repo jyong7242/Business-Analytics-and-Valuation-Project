@@ -2,46 +2,31 @@
 
 ## 📌 Overview
 
-This project focuses on developing and evaluating a portfolio strategy that ranks stocks based on their past returns and allocates weights accordingly. The project includes data processing, ranking logic, weighting schemes, and performance evaluation across various metrics. All implementation and strategy design are based on my individual work using Python and Excel for the MFIN602 coursework.
+This project aims to construct and evaluate a stock portfolio using data-driven techniques and optimization. The strategy ranks firms based on key valuation and momentum indicators and uses historical return and risk data to build an optimal portfolio. The project combines Python-based programming with Excel validation and was completed individually as part of the MFIN602 coursework.
 
 ---
 
 ## 🎯 Objectives
 
-- Rank stocks based on historical return data for 2022.
-- Assign portfolio weights proportional to the return-based ranks.
-- Calculate realized returns for 2023.
-- Analyze portfolio performance relative to equal-weight and benchmark portfolios.
-
+- Identify undervalued and high-momentum stocks using financial ratios and return indicators
+- Construct portfolios based on ranking and optimization techniques
+- Evaluate portfolio performance using actual 2023 return data
+- Compare optimized portfolios with equal-weighted and benchmark alternatives
 ---
 
 ## 💡 Methodology
 
-### 1. Return Ranking
+###1. Stock Ranking and Selection
+Stock data from the Canadian market was ranked based on a combination of valuation (P/E, P/B, dividend yield) and momentum (cumulative return) metrics. Each firm received a composite score, and the top 10 stocks were selected for portfolio construction.
 
-- Collected and cleaned 2022 return data from `MFIN602 Project.xlsx`.
-- Ranked firms based on their prior-year returns (highest return = highest rank).
+###2. Portfolio Construction Strategies
+Two strategies were developed. The first is a simple 1/N portfolio that allocates equal weights to the selected stocks. The second strategy minimizes portfolio volatility using historical standard deviation as a risk proxy. This was implemented with cvxpy under non-negativity and full-investment constraints.
 
-### 2. Weighting Strategy
+###3. Backtesting and Performance Evaluation
+Daily return data from 2023 was downloaded using the Yahoo Finance API. Portfolio returns were calculated based on the constructed weights and compared to both equal-weighted portfolios and benchmark performance. Cumulative returns and Sharpe ratios were used for evaluation.
 
-- Applied rank-based proportional weights:  
-  $$ w_i = \frac{\text{Rank}_i}{\sum \text{Ranks}} $$
-- Ensured total portfolio weight = 100%.
-
-### 3. Portfolio Return Calculation
-
-- Used 2023 actual returns to compute:
-  - Portfolio return
-  - Equal-weighted return (baseline comparison)
-
-### 4. Output and Validation
-
-- Python notebook outputs include:
-  - Ranked list of stocks
-  - Assigned weights
-  - Portfolio return vs. equal-weight return
-- Excel workbook confirms calculations for cross-validation.
-
+###4. Tools and Output
+The analysis was performed using Python (pandas, yfinance, cvxpy), with key results exported to Excel and PDF. Outputs include the ranked firm list, portfolio weights, return time series, and visual performance summaries.
 ---
 
 ## 🧰 Requirements
@@ -49,7 +34,7 @@ This project focuses on developing and evaluating a portfolio strategy that rank
 Install required packages with:
 
 ```bash
-pip install pandas numpy openpyxl
+pip install pandas numpy matplotlib seaborn yfinance cvxpy openpyxl
 ```
 
 ## 🙋 Author
