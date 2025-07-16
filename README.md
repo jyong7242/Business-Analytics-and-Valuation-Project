@@ -27,6 +27,7 @@ Daily return data from 2023 was downloaded using the Yahoo Finance API. Portfoli
 
 ###4. Tools and Output
 The analysis was performed using Python (pandas, yfinance, cvxpy), with key results exported to Excel and PDF. Outputs include the ranked firm list, portfolio weights, return time series, and visual performance summaries.
+
 ---
 
 ## 🧰 Requirements
